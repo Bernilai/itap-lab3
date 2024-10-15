@@ -3,30 +3,13 @@ package dev.bernilai;
 import java.util.LinkedList;
 
 public class HashTable<K, V> {
-    private static class Entry<K, V> {
-        private K key;
-        private V value;
-
-        public Entry(K key, V value) {
-            this.key = key;
-            this.value = value;
-        }
-
-        public K getKey() {
-            return key;
-        }
-
-        public V getValue() {
-            return value;
-        }
-
-        public void setValue(V value) {
-            this.value = value;
-        }
-    }
-
     private LinkedList<Entry<K, V>>[] table;
     private int size;
+
+    public HashTable(int capacity) {
+        table = new LinkedList[capacity];
+        size = 0;
+    }
 
     private int hash(K key) {
         return Math.abs(key.hashCode()) % table.length;
@@ -80,4 +63,3 @@ public class HashTable<K, V> {
         return size == 0;
     }
 }
-

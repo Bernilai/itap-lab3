@@ -1,18 +1,16 @@
 package dev.bernilai;
 
-import java.util.Hashtable;
-
 public class Main {
     public static void main(String[] args) {
-        Hashtable<String, Integer> hashTable = new Hashtable<>(3);
+        HashTable<Integer, String> hashTable = new HashTable<>(10);
         Library library = new Library();
 
         Book book1 = new Book("978-0134567890", "Gulliver’s Travels", "Jonathan Swift", 5);
         Book book2 = new Book("978-1234567890", "Frankenstein", "Mary Shelley", 3);
 
-        hashTable.put("apple", 1);
-        hashTable.put("banana", 2);
-        hashTable.put("orange", 3);
+        hashTable.put(1, "apple");
+        hashTable.put(3, "banana");
+        hashTable.put(8, "orange");
 
         library.addBook(book1);
         library.addBook(book2);
@@ -22,11 +20,16 @@ public class Main {
         System.out.println("Is hash table empty?: " + hashTable.isEmpty());
         System.out.println("Hash table size: " + hashTable.size());
 
-        hashTable.remove("apple");
+        System.out.println("1: " + hashTable.get(1));
+        System.out.println("2: " + hashTable.get(2));
+        System.out.println("3: " + hashTable.get(3));
+        System.out.println("8: " + hashTable.get(8));
+
+        hashTable.remove(1);
         System.out.println("Hash table size without apple: " + hashTable.size());
 
-        hashTable.remove("orange");
-        hashTable.remove("banana");
+        hashTable.remove(3);
+        hashTable.remove(8);
 
         System.out.println("Is hash table empty?: " + hashTable.isEmpty());
 
